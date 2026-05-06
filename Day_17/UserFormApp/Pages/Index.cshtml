@@ -1,1 +1,27 @@
+﻿@page
+@model IndexModel
 
+<h2>User Form</h2>
+
+<form method="post">
+    <div>
+        <label>Username:</label>
+        <input type="text" asp-for="Username" />
+    </div>
+
+    <br>
+
+    <div>
+        <label>Email:</label>
+        <input type="email" asp-for="Email" />
+    </div>
+
+    <br>
+
+    <button type="submit">Submit</button>
+</form>
+
+@if (Model.Message != null)
+{
+    <h3 style="color:green">@Model.Message</h3>
+}
