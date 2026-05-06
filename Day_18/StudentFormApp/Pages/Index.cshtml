@@ -1,1 +1,21 @@
+﻿@page
+@model StudentApp.Pages.IndexModel
 
+<h2>Student Registration</h2>
+
+<form method="post">
+    <label>Enter Student Name:</label><br /><br />
+
+    <!-- Two-way binding -->
+    <input type="text" asp-for="StudentName" placeholder="Enter your name" />
+    <br /><br />
+
+    <button type="submit">Register</button>
+</form>
+
+<br />
+
+@if (Model.Message != null)
+{
+    <h3>@Model.Message</h3>
+}
