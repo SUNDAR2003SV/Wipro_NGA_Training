@@ -1,1 +1,38 @@
+﻿<h2>Simple AJAX Example</h2>
 
+<button id="btnClick">Get Message</button>
+
+<h3 id="result"></h3>
+
+@section Scripts {
+
+<script>
+
+    $(document).ready(function () {
+
+        $("#btnClick").click(function () {
+
+            $.ajax({
+                url: '/Home/GetMessage',
+                type: 'GET',
+
+                success: function (response) {
+
+                    $("#result").html(response.message);
+
+                },
+
+                error: function () {
+
+                    alert("Error occurred");
+
+                }
+            });
+
+        });
+
+    });
+
+</script>
+
+}
