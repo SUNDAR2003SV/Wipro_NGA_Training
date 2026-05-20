@@ -1,1 +1,17 @@
+@model SecureTaskManager.ViewModels.LoginViewModel
 
+<h2>Login</h2>
+
+<form asp-action="Login" method="post">
+
+    @Html.AntiForgeryToken()
+
+    <input asp-for="Email" placeholder="Email" />
+
+    <input asp-for="Password" placeholder="Password" />
+
+    <button type="submit">Login</button>
+
+</form>
+
+<p>@ViewBag.Message</p>
