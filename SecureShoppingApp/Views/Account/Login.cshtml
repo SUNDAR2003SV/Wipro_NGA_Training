@@ -1,1 +1,27 @@
+@model SecureShoppingApp.ViewModels.LoginViewModel
 
+<h2>User Login</h2>
+
+<form asp-action="Login" method="post">
+
+    <div>
+        <label>Email</label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+
+    <br />
+
+    <div>
+        <label>Password</label>
+        <input asp-for="Password" type="password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+
+    <br />
+
+    <button type="submit">Login</button>
+
+</form>
+
+<div asp-validation-summary="All"></div>
