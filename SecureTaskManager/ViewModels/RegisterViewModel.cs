@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SecureTaskManager.ViewModels
 {
-    public class LoginViewModel
+    public class RegisterViewModel
     {
         [Required]
 
