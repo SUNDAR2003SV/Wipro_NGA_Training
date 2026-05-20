@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace SecureTaskManager.Controllers
 {
-    [Authorize]
-    public class HomeController : Controller
+    [Authorize(Roles = "Admin")]
+    public class AdminController : Controller
     {
-        public IActionResult Dashboard()
+        public IActionResult ManageTasks()
         {
             return View();
         }
