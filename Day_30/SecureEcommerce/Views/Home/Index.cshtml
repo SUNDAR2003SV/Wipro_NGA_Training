@@ -1,1 +1,34 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Home";
+}
 
+@{
+    ViewData["Title"] = "Welcome";
+}
+
+<div class="text-center mt-5">
+    <h1>🛒 Secure E-Commerce Portal</h1>
+    <p class="lead">A role-based secure shopping platform</p>
+
+    @if (User.Identity!.IsAuthenticated)
+    {
+        <p>Welcome, <strong>@User.Identity.Name</strong>!</p>
+
+        @if (User.IsInRole("Admin"))
+        {
+            <a class="btn btn-danger m-1" asp-controller="Admin" asp-action="Dashboard">Admin Dashboard</a>
+        }
+        @if (User.IsInRole("Seller"))
+        {
+            <a class="btn btn-warning m-1" asp-controller="Seller" asp-action="Dashboard">Seller Dashboard</a>
+        }
+
+        <a class="btn btn-primary m-1" asp-controller="Products" asp-action="Index">Browse Products</a>
+    }
+    else
+    {
+        <a class="btn btn-success m-1" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        <a class="btn btn-primary m-1" asp-area="Identity" asp-page="/Account/Login">Login</a>
+    }
+</div>
