@@ -1,8 +1,10 @@
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace SecureECommerce.Controllers
 {
-    public class HomeController : Controller
+    [Authorize]  // Any logged-in user
+    public class ProductsController : Controller
     {
         public IActionResult Index()
         {
