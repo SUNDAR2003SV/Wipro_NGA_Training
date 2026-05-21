@@ -1,1 +1,33 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Seller Dashboard";
+}
 
+@{
+    ViewData["Title"] = "Seller Dashboard";
+}
+
+<h2>📦 Seller Dashboard</h2>
+<p>Logged in as Seller: <strong>@User.Identity!.Name</strong></p>
+
+<table class="table table-bordered mt-3">
+    <thead class="table-warning">
+        <tr>
+            <th>Product</th>
+            <th>Stock</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var i in Enumerable.Range(1, 4))
+        {
+            <tr>
+                <td>Product @i</td>
+                <td>@(i * 5) units</td>
+                <td>$@(i * 15).00</td>
+                <td><button class="btn btn-sm btn-outline-primary">Edit</button></td>
+            </tr>
+        }
+    </tbody>
+</table>
