@@ -1,1 +1,36 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Admin Dashboard";
+}
 
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<h2>🔐 Admin Dashboard</h2>
+<p>Logged in as Admin: <strong>@User.Identity!.Name</strong></p>
+
+<h4 class="mt-4">All Registered Users</h4>
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>#</th>
+            <th>Email</th>
+            <th>Email Confirmed</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int count = 1;
+        }
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@count++</td>
+                <td>@user.Email</td>
+                <td>@(user.EmailConfirmed ? "✅" : "❌")</td>
+            </tr>
+        }
+    </tbody>
+</table>
