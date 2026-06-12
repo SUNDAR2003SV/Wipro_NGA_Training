@@ -1,1 +1,62 @@
+﻿<h2>Workforce Analytics Dashboard</h2>
 
+<hr />
+
+<div class="row">
+
+    <div class="col-md-4">
+        <div class="card p-3 border">
+            <h4>Total Employees</h4>
+            <h2>@ViewBag.EmployeeCount</h2>
+        </div>
+    </div>
+
+    <br /><br />
+
+    <div class="col-md-4">
+        <div class="card p-3 border">
+            <h4>Total Leave Requests</h4>
+            <h2>@ViewBag.TotalLeaves</h2>
+        </div>
+    </div>
+
+</div>
+
+<hr />
+
+<div class="row">
+
+    <div class="col-md-4">
+        <div class="card p-3 border">
+            <h4>Approved Leaves</h4>
+            <h2>@ViewBag.ApprovedLeaves</h2>
+        </div>
+    </div>
+
+    <br /><br />
+
+    <div class="col-md-4">
+        <div class="card p-3 border">
+            <h4>Rejected Leaves</h4>
+            <h2>@ViewBag.RejectedLeaves</h2>
+        </div>
+    </div>
+
+    <br /><br />
+
+    <div class="col-md-4">
+        <div class="card p-3 border">
+            <h4>Pending Leaves</h4>
+            <h2>@ViewBag.PendingLeaves</h2>
+        </div>
+    </div>
+
+</div>
+
+<hr />
+
+<a asp-controller="Dashboard"
+       asp-action="Index"
+       class="btn btn-secondary">
+    Back To Dashboard
+</a>
