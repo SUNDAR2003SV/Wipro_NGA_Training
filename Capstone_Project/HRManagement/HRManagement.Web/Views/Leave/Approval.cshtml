@@ -1,0 +1,102 @@
+﻿@model IEnumerable<HRManagement.Core.Entities.Leave>
+
+<h2>Leave Approval Management</h2>
+
+<hr />
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            <th>Leave ID</th>
+            <th>Employee ID</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Reason</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var leave in Model)
+        {
+            <tr>
+
+                <td>@leave.LeaveId</td>
+
+                <td>@leave.EmployeeId</td>
+
+                <td>
+                    @leave.StartDate.ToShortDateString()
+                </td>
+
+                <td>
+                    @leave.EndDate.ToShortDateString()
+                </td>
+
+                <td>@leave.Reason</td>
+
+                <td>
+
+                    @if (leave.Status == "Approved")
+                    {
+                        <span class="badge bg-success">
+                            Approved
+                        </span>
+                    }
+                    else if (leave.Status == "Rejected")
+                    {
+                        <span class="badge bg-danger">
+                            Rejected
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-warning text-dark">
+                            Pending
+                        </span>
+                    }
+
+                </td>
+
+                <td>
+
+                    @if (leave.Status == "Pending")
+                    {
+                        <a asp-controller="Leave"
+                               asp-action="Approve"
+                               asp-route-id="@leave.LeaveId"
+                               class="btn btn-success btn-sm">
+                            Approve
+                        </a>
+
+                        <a asp-controller="Leave"
+                               asp-action="Reject"
+                               asp-route-id="@leave.LeaveId"
+                               class="btn btn-danger btn-sm">
+                            Reject
+                        </a>
+                    }
+                    else
+                    {
+                        <span>No Action Required</span>
+                    }
+
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+<br />
+
+<a asp-controller="Dashboard"
+       asp-action="Index"
+       class="btn btn-secondary">
+    Back To Dashboard
+</a>
