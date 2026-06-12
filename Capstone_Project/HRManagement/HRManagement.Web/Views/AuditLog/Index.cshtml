@@ -1,1 +1,40 @@
+﻿@model IEnumerable<HRManagement.Core.Entities.AuditLog>
 
+<h2>Audit Logs</h2>
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Action Type</th>
+            <th>Entity Name</th>
+            <th>Action Date</th>
+            <th>Performed By</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var log in Model)
+        {
+            <tr>
+                <td>@log.AuditLogId</td>
+                <td>@log.ActionType</td>
+                <td>@log.EntityName</td>
+                <td>@log.ActionDate</td>
+                <td>@log.PerformedBy</td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+<br />
+
+<a asp-controller="Dashboard"
+       asp-action="Index"
+       class="btn btn-secondary">
+    Back To Dashboard
+</a>
