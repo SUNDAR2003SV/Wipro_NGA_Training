@@ -1,0 +1,58 @@
+﻿@model HRManagement.Core.Entities.Employee
+
+<h2>Employee Details</h2>
+
+<hr />
+
+<div>
+
+    <dl class="row">
+
+        <dt class="col-sm-3">
+            Employee ID
+        </dt>
+
+        <dd class="col-sm-9">
+            @Model.EmployeeId
+        </dd>
+
+        <dt class="col-sm-3">
+            First Name
+        </dt>
+
+        <dd class="col-sm-9">
+            @Model.FirstName
+        </dd>
+
+        <dt class="col-sm-3">
+            Last Name
+        </dt>
+
+        <dd class="col-sm-9">
+            @Model.LastName
+        </dd>
+
+        <dt class="col-sm-3">
+            Email
+        </dt>
+
+        <dd class="col-sm-9">
+            @Model.Email
+        </dd>
+
+        <dt class="col-sm-3">
+            Department
+        </dt>
+
+        <dd class="col-sm-9">
+            @Model.Department
+        </dd>
+
+    </dl>
+
+</div>
+
+<a asp-action="Index"
+       class="btn btn-secondary">
+    Back
+</a>
